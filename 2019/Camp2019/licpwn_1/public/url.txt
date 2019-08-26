@@ -1,0 +1,5 @@
+URL des Services
+
+Desciption: You found this cool service and really want to buy a flag. A real flag! That would totally make your day. Unfortunatly the real flags are sold out. Find a way to get the flag anyway.
+
+Note: licpwn stage2 can only be solved once stage1 has been solved.

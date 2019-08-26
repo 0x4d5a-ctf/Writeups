@@ -1,0 +1,3 @@
+We heard the .NET framework is secure and stuff. Nothing can go wrong. Really. Nothing.
+
+Build with "dotnet publish --runtime ubuntu.18.04-x64" and executed in a docker container: "FROM mcr.microsoft.com/dotnet/core/aspnet:2.1.12-bionic"

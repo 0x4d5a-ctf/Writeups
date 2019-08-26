@@ -1,0 +1,3 @@
+Wieder nur URL gegeben.
+
+You got one flag. But its still not the real flag you are looking for. Use the hints and knowledge from stage1 to find the final flag!
