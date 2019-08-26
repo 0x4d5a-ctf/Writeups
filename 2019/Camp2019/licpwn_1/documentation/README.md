@@ -20,7 +20,10 @@ First of all the user should see the HTML comment with valid license data:
 <!-- We got a backup license from earlier. Username: ALLES! LicenceCode: e0657c850d30211e27afe6c6edb3822c -->
 ```
 
-Using the stacktraces the user can understand the encrypted file format: The key are the first 16 bytes, followed by the binary encrypted data. Using the scheme for cbc decryption the user can guess the IV using the known plaintext:
+Using the stacktraces the user can understand the encrypted file format: The key are the first 16 bytes, followed by the binary encrypted data.
+![](aeserror.PNG)
+
+Using the scheme for cbc decryption the user can guess the IV using the known plaintext:
 https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg
 
 The known plaintext is the java object header `0xaced`, Version 5 `0x0005`, as well as the TC_OBJECT and TC_CLASSDESC  constants `0x73` and `0x72`, followed by `0x00`. The 8th byte is unknown, but can be brute forced easily. The java serilialized object is followed by the package name, which is also leaked in the stacktrace: `com.licp`. See: https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.html
@@ -28,6 +31,8 @@ The known plaintext is the java object header `0xaced`, Version 5 `0x0005`, as w
 Using the information the IV can be guessed using the script of localo:
 ![](recrypt.png)
 
+With all those information a valid java license file can be crafted and encrypted. Filling it with the valid license data from the html comment above the user gets the WAR file:
+![](flag.PNG)
 
 ```
 from Crypto.Cipher import AES
@@ -83,9 +88,6 @@ new_plain = cipher.decrypt(new_ciphertext)
 print(new_plain.encode('hex'))
 ```
 
-
-With a valid license the WAR file can be downloaded:
-![](flag.png)
 
 Flag: `ALLES{a3s_st4g3}`
 
