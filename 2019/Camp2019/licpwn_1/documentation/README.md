@@ -1,8 +1,13 @@
+## Comment by the author (0x4d5a)
+It turned out that this challenge was harder to solve then i expected. Thats quite unfortunate, since licpwn2 wasn't solved in the consequence. I've learned by lesson and won't do multi stage challenges anymore ;)
+
+Also it turned out that may teams got the correct IV, but didn't craft a valid license object since they missed the fact that the AES key is at the very beginning of the license file. That should've been made more clear.
+
 # licpwn stage1
 A simple/medium crypto challenge. The goal is to get the IV of the AES encryption method in order to serialize a forged object. The IV is the flag. Once a valid license object was sent, the WAR file is provided for stage2. 
 
 ## Description
-The site offers a simple bootstrap webpage as shown below. It offers the user to buy some flags, but its acctually all about the licensing system.
+The site offers a simple bootstrap webpage as shown below. It offers the user to buy some flags, but its actually all about the licensing system.
 ![](home.png)
 
 Using the provided license the user receives the "redeaced" flag. But he got a valid license.
